@@ -11,8 +11,9 @@ import SwiftUI
 public struct PieLabel: View {
     
     public let currentData: ChartDataProvidable
+    public let spaceOffSet: Double
     public var  percentage: String {
-        return "\(Int((currentData.value + 0.002) * 100)) %"
+        return "\(Int((currentData.value + spaceOffSet) * 100)) %"
     }
     
     public var body: some View {

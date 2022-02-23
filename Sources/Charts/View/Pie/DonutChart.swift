@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-public struct DonutChart<T>: View where T: ChartViewModel {
+public struct DonutChart<T>: View where T: CircleChartViewModel {
     
     @ObservedObject public var vm: T
     @State private var selectedPieChartElement: Int? = nil
@@ -37,7 +37,7 @@ public struct DonutChart<T>: View where T: ChartViewModel {
                     
                     GeometryReader { geometry in
                         let center = getLabelCoordinate(in: geometry.size, for: lastDegree + (currentEndDegree / 2))
-                        PieLabel(currentData: currentData)
+                        PieLabel(currentData: currentData, spaceOffSet: vm.space)
                             .position(center)
                     }
                     .scaleEffect(index == selectedPieChartElement ? 1.2 : 1.0)
