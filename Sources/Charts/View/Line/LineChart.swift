@@ -11,9 +11,11 @@ import SwiftUI
 public struct LineChart<T>: View where T: LineChartViewModel  {
     
     @ObservedObject public var vm: T
+    public let action: ((ChartDataProvidable) -> Void)?
     
-    public init(vm: T) {
+    public init(vm: T, action: ((ChartDataProvidable) -> Void)?) {
         self.vm = vm
+        self.action = action
     }
     
     public var body: some View {
@@ -94,6 +96,9 @@ public struct LineChart<T>: View where T: LineChartViewModel  {
                             let dataCount = vm.data.count - 1
                             let minV = min(Int(((translation / (width - 90)) * CGFloat(dataCount)).rounded() + 1), dataCount)
                             let index = max(minV, 0)
+                            if "$ \(data[index])" != vm.currentPlot, let action = action {
+                                action(vm.data[index])
+                            }
                             vm.currentPlot = "$ \(data[index])"
                             
                             vm.offset = CGSize(width: points[index].x - 40, height: points[index].y - height)
