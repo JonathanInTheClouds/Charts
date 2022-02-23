@@ -57,30 +57,12 @@ public struct LineChart<T>: View where T: LineChartViewModel  {
                     .frame(width: width, height: height)
                     .overlay(
                         VStack(spacing: 0) {
-                            Text(vm.currentPlot)
-                                .font(.caption.bold())
-                                .foregroundColor(.white)
-                                .padding(.vertical, 6)
-                                .padding(.horizontal, 10)
-                                .background(Color.blue, in: Capsule())
-                                .offset(x: vm.translation < 10 ? 30 : 0)
-                                .offset(x: vm.translation > (width - 90) ? -30 : 0)
-                            
-                            Rectangle()
-                                .fill(Color.clear)
-                                .frame(width: 1, height: 45)
-                                .padding(.top)
-                            
                             Circle()
                                 .fill(Color.blue)
                                 .frame(width: 12, height: 12)
-                            
-                            Rectangle()
-                                .fill(Color.clear)
-                                .frame(width: 1, height: 45)
                         }
                             .frame(width: 80, height: 170)
-                            .offset(y: 55)
+                            .offset(y: 40)
                             .opacity(vm.showPlot ? 1 : 0)
                             .offset(vm.offset), alignment: .bottomLeading
                     )
