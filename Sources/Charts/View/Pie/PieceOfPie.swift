@@ -10,8 +10,8 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct PieceOfPie: Shape {
     
-    let startDegree: Double
-    let endDegree: Double
+    public let startDegree: Double
+    public let endDegree: Double
     
     public func path(in rect: CGRect) -> Path {
         return Path { p in

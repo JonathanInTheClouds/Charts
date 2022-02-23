@@ -10,9 +10,9 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct DonutChart<T>: View where T: ChartViewModel {
     
-    @ObservedObject var vm: T
-    @State var selectedPieChartElement: Int? = nil
-    let action: ((ChartDataProvidable) -> Void)?
+    @ObservedObject public var vm: T
+    @State public var selectedPieChartElement: Int? = nil
+    public let action: ((ChartDataProvidable) -> Void)?
     
     
     public var body: some View {
