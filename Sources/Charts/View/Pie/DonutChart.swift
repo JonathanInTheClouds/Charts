@@ -36,7 +36,7 @@ public struct DonutChart<T>: View where T: CircleChartViewModel {
                         .scaleEffect(index == selectedPieChartElement ? 1.2 : 1.0)
                     
                     GeometryReader { geometry in
-                        let center = getLabelCoordinate(in: geometry.size, for: lastDegree + (currentEndDegree / 2))
+                        let center = getLabelCoordinate(in: geometry.size, for: lastDegree + (currentEndDegree / 2), with: vm.labelSpacing)
                         PieLabel(currentData: currentData, spaceOffSet: vm.dataSpacing)
                             .position(center)
                     }
@@ -63,9 +63,9 @@ public struct DonutChart<T>: View where T: CircleChartViewModel {
         }
     }
     
-    func getLabelCoordinate(in geoSize: CGSize, for degree: Double, with offSet: Double) -> CGPoint {
+    func getLabelCoordinate(in geoSize: CGSize, for degree: Double, with offSet: CGFloat) -> CGPoint {
         let center = CGPoint(x: geoSize.width / 2, y: geoSize.height / 2)
-        let radius = (geoSize.width / 3) + 75 + offSet
+        let radius = ((geoSize.width / 3) + 75) + offSet
         let radian = CGFloat(degree) * (CGFloat.pi / 180)
         let yCoordinate = radius * sin(radian)
         let xCoordinate = radius * cos(radian)
