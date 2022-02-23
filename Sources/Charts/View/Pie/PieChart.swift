@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct PieChart<T>: View where T: ChartViewModel {
+public struct PieChart<T>: View where T: ChartViewModel {
     
     @ObservedObject var vm: T
     @State var selectedPieChartElement: Int? = nil

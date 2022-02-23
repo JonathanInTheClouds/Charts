@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct PieceOfPie: Shape {
+public struct PieceOfPie: Shape {
     
     let startDegree: Double
     let endDegree: Double

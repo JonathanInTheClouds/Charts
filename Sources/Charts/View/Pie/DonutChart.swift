@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct DonutChart<T>: View where T: ChartViewModel {
+public struct DonutChart<T>: View where T: ChartViewModel {
     
     @ObservedObject var vm: T
     @State var selectedPieChartElement: Int? = nil

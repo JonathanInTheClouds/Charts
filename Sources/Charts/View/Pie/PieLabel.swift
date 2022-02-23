@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct PieLabel: View {
+public struct PieLabel: View {
     
     let currentData: ChartDataProvidable
     var  percentage: String {
