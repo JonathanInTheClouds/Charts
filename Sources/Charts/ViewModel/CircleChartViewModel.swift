@@ -9,5 +9,6 @@ import Foundation
 
 @available(iOS 13.0, *)
 public protocol CircleChartViewModel: ChartViewModel {
-    var space: Double { get }
+    var dataSpacing: Double { get }
+    var labelSpacing: Double { get }
 }
