@@ -12,6 +12,10 @@ public struct LineChart<T>: View where T: LineChartViewModel  {
     
     @ObservedObject public var vm: T
     
+    public init(vm: T) {
+        self.vm = vm
+    }
+    
     public var body: some View {
         
         GeometryReader { geometry in
