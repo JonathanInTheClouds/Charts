@@ -37,7 +37,7 @@ public struct DonutChart<T>: View where T: CircleChartViewModel {
                     
                     GeometryReader { geometry in
                         let center = getLabelCoordinate(in: geometry.size, for: lastDegree + (currentEndDegree / 2))
-                        PieLabel(currentData: currentData, spaceOffSet: vm.spaceBetweenData)
+                        PieLabel(currentData: currentData, spaceOffSet: vm.dataSpacing)
                             .position(center)
                     }
                     .scaleEffect(index == selectedPieChartElement ? 1.2 : 1.0)
