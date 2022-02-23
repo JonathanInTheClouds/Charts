@@ -11,9 +11,14 @@ import SwiftUI
 public struct DonutChart<T>: View where T: ChartViewModel {
     
     @ObservedObject public var vm: T
-    @State public var selectedPieChartElement: Int? = nil
+    @State private var selectedPieChartElement: Int? = nil
     public let action: ((ChartDataProvidable) -> Void)?
     
+    
+    public init(vm: T, action: ((ChartDataProvidable) -> Void)?) {
+        self.vm = vm
+        self.action = action
+    }
     
     public var body: some View {
         ZStack {

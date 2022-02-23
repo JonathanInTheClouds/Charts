@@ -10,8 +10,8 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct PieLabel: View {
     
-    let currentData: ChartDataProvidable
-    var  percentage: String {
+    public let currentData: ChartDataProvidable
+    public var  percentage: String {
         return "\(Int((currentData.value + 0.002) * 100)) %"
     }
     
