@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 public struct PieChart<T>: View where T: ChartViewModel {
     
     @ObservedObject public var vm: T

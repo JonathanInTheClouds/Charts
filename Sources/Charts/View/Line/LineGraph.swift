@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 public struct LineGraph: Shape {
     /// Normalized data points between 0 and 1
     public var dataPoints: [CGPoint]

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 public struct PieLabel: View {
     
     public let currentData: ChartDataProvidable

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 public struct BudgetLineGraphBackground: Shape {
     var data: CGFloat
     let min: CGFloat

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 public struct DonutChart<T>: View where T: CircleChartViewModel {
     
     @ObservedObject public var vm: T
@@ -73,7 +73,7 @@ public struct DonutChart<T>: View where T: CircleChartViewModel {
     }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 struct PieWhiteCenter: View {
     let action: (() -> Void)?
     
