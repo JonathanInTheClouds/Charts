@@ -16,7 +16,7 @@ public struct PieChart<T>: View where T: ChartViewModel {
     let action: ((ChartDataProvidable) -> Void)?
     
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             ForEach(0 ..< vm.data.count) { index in
                 let currentData = vm.data[index]

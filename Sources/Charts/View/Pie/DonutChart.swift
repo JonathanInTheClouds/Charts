@@ -15,7 +15,7 @@ public struct DonutChart<T>: View where T: ChartViewModel {
     let action: ((ChartDataProvidable) -> Void)?
     
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             let chartData = vm.chartData
             ForEach(0 ..< chartData.count) { index in

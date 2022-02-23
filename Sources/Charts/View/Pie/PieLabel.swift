@@ -14,7 +14,8 @@ public struct PieLabel: View {
     var  percentage: String {
         return "\(Int((currentData.value + 0.002) * 100)) %"
     }
-    var body: some View {
+    
+    public var body: some View {
         HStack {
             Text(percentage)
         }

@@ -13,7 +13,7 @@ public struct PieceOfPie: Shape {
     let startDegree: Double
     let endDegree: Double
     
-    func path(in rect: CGRect) -> Path {
+    public func path(in rect: CGRect) -> Path {
         return Path { p in
             let center = CGPoint(x: rect.midX, y: rect.midY)
             p.move(to: center)

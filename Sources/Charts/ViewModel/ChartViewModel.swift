@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 13.0, *)
-protocol ChartViewModel: ObservableObject {
+public protocol ChartViewModel: ObservableObject {
     var data: [ChartDataProvidable] { get set }
     var chartData: [ChartDataProvidable] { get }
 }
