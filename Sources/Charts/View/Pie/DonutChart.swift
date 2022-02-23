@@ -63,9 +63,9 @@ public struct DonutChart<T>: View where T: CircleChartViewModel {
         }
     }
     
-    func getLabelCoordinate(in geoSize: CGSize, for degree: Double) -> CGPoint {
+    func getLabelCoordinate(in geoSize: CGSize, for degree: Double, with offSet: Double) -> CGPoint {
         let center = CGPoint(x: geoSize.width / 2, y: geoSize.height / 2)
-        let radius = (geoSize.width / 3) + 75
+        let radius = (geoSize.width / 3) + 75 + offSet
         let radian = CGFloat(degree) * (CGFloat.pi / 180)
         let yCoordinate = radius * sin(radian)
         let xCoordinate = radius * cos(radian)
