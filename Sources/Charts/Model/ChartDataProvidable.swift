@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public protocol ChartDataProvidable {
-    var value: Double { get }
-    var label: String { get }
-    var color: Color { get }
+    var value: Double { get set }
+    var label: String { get set }
+    var color: Color { get set }
 }
