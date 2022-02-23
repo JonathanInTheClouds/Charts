@@ -8,26 +8,16 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct LineChart: View {
-    @State private var animateChart = false
+public struct LineChart<T>: View where T: LineChartViewModel  {
     
-    @State private var currentPlot = ""
+    @ObservedObject public var vm: T
     
-    @State private var showPlot = false
-    
-    @State private var offset: CGSize = .zero
-    
-    @State private var translation: CGFloat = 0
-    
-    @State var data: [CGFloat]
-    
-    @State var target: CGFloat?
-    
-    var body: some View {
+    public var body: some View {
         
         GeometryReader { geometry in
             let width = geometry.size.width
             let height = geometry.size.height
+            let data = vm.data.map { CGFloat($0.value) }
             
             let points: [CGPoint] = {
                 guard data.count > 1 else { return [] }
@@ -50,25 +40,25 @@ struct LineChart: View {
                                        endPoint: .top)
                     )
                 
-                if let target = target {
-                    BudgetLineGraphBackground(data: target, min: data.min() ?? 0, max: data.max() ?? 0)
+                if  let target = vm.target, let min = data.min(), let max = data.max() {
+                    BudgetLineGraphBackground(data: target, min: min, max: max)
                         .stroke(Color.gray.opacity(0.5), style: StrokeStyle(lineWidth: 1, dash: [5]))
                 }
                 
                 LineGraph(dataPoints: points)
-                    .trim(to: animateChart ? 1 : 0)
+                    .trim(to: vm.animateChart ? 1 : 0)
                     .stroke(Color.blue)
                     .frame(width: width, height: height)
                     .overlay(
                         VStack(spacing: 0) {
-                            Text(currentPlot)
+                            Text(vm.currentPlot)
                                 .font(.caption.bold())
                                 .foregroundColor(.white)
                                 .padding(.vertical, 6)
                                 .padding(.horizontal, 10)
                                 .background(Color.blue, in: Capsule())
-                                .offset(x: translation < 10 ? 30 : 0)
-                                .offset(x: translation > (width - 90) ? -30 : 0)
+                                .offset(x: vm.translation < 10 ? 30 : 0)
+                                .offset(x: vm.translation > (width - 90) ? -30 : 0)
                             
                             Rectangle()
                                 .fill(Color.blue)
@@ -85,35 +75,35 @@ struct LineChart: View {
                         }
                             .frame(width: 80, height: 170)
                             .offset(y: 65)
-                            .opacity(showPlot ? 1 : 0)
-                            .offset(offset), alignment: .bottomLeading
+                            .opacity(vm.showPlot ? 1 : 0)
+                            .offset(vm.offset), alignment: .bottomLeading
                     )
                     .contentShape(Rectangle())
                     .gesture(DragGesture().onChanged({ value in
                         withAnimation {
-                            showPlot = true
+                            vm.showPlot = true
                             
                             let translation = value.location.x - 40
                             withAnimation {
-                                self.translation = translation
+                                vm.translation = translation
                             }
-                            let dataCount = data.count - 1
+                            let dataCount = vm.data.count - 1
                             let minV = min(Int(((translation / (width - 90)) * CGFloat(dataCount)).rounded() + 1), dataCount)
                             let index = max(minV, 0)
-                            currentPlot = "$ \(data[index])"
+                            vm.currentPlot = "$ \(data[index])"
                             
-                            offset = CGSize(width: points[index].x - 40, height: points[index].y - height)
+                            vm.offset = CGSize(width: points[index].x - 40, height: points[index].y - height)
                         }
                     }).onEnded({ value in
                         withAnimation {
-                            showPlot = false
+                            vm.showPlot = false
                         }
                     }))
                     .onAppear {
                         withAnimation(.easeOut(duration: 2)) {
-                            animateChart = true
+                            vm.animateChart = true
                         }
-                        print(data.count)
+                        print(vm.data.count)
                     }
             }
         }

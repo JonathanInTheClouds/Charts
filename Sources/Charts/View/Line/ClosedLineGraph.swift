@@ -8,10 +8,10 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ClosedLineGraph: Shape {
-    var dataPoints: [CGPoint]
+public struct ClosedLineGraph: Shape {
+    public var dataPoints: [CGPoint]
     
-    func path(in rect: CGRect) -> Path {
+    public func path(in rect: CGRect) -> Path {
         
         return Path { path in
             guard dataPoints.count > 1 else { return }

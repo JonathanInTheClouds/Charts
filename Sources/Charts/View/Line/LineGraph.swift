@@ -8,12 +8,11 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct LineGraph: Shape {
+public struct LineGraph: Shape {
     /// Normalized data points between 0 and 1
-    var dataPoints: [CGPoint]
+    public var dataPoints: [CGPoint]
     
-    func path(in rect: CGRect) -> Path {
-        
+    public func path(in rect: CGRect) -> Path {
         return Path { path in
             guard dataPoints.count > 1 else { return }
             

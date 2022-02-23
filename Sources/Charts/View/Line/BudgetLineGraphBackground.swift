@@ -8,12 +8,12 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct BudgetLineGraphBackground: Shape {
+public struct BudgetLineGraphBackground: Shape {
     var data: CGFloat
     let min: CGFloat
     let max: CGFloat
     
-    func path(in rect: CGRect) -> Path {
+    public func path(in rect: CGRect) -> Path {
         let width = rect.size.width
         let height = rect.size.height
         let point = (data - min) / (max - min)
