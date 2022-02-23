@@ -67,20 +67,20 @@ public struct LineChart<T>: View where T: LineChartViewModel  {
                                 .offset(x: vm.translation > (width - 90) ? -30 : 0)
                             
                             Rectangle()
-                                .fill(Color.blue)
+                                .fill(Color.clear)
                                 .frame(width: 1, height: 45)
                                 .padding(.top)
                             
                             Circle()
                                 .fill(Color.blue)
-                                .frame(width: 22, height: 22)
+                                .frame(width: 12, height: 12)
                             
                             Rectangle()
-                                .fill(Color.blue)
+                                .fill(Color.clear)
                                 .frame(width: 1, height: 45)
                         }
                             .frame(width: 80, height: 170)
-                            .offset(y: 65)
+                            .offset(y: 55)
                             .opacity(vm.showPlot ? 1 : 0)
                             .offset(vm.offset), alignment: .bottomLeading
                     )
