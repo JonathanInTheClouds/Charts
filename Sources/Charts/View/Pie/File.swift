@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public struct DonutChart<T>: View where T: CircleChartConfiguration {
+public struct DonutChart<T>: View where T: CircleChartProtocol {
     
     @ObservedObject public var vm: T
     @State private var selectedPieChartElement: Int? = nil

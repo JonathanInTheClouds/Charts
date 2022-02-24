@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public struct LineChart<T>: View where T: LineChartConfiguration  {
+public struct LineChart<T>: View where T: LineChartProtocol  {
     
     @ObservedObject public var vm: T
     public let action: ((ChartDataProvidable) -> Void)?

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LineChartConfiguration.swift
 //  
 //
 //  Created by Mettaworldj on 2/23/22.
@@ -8,16 +8,22 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public protocol LineChartConfiguration: ChartConfiguration {
-    var animateChart: Bool { get set }
+public class LineChartConfiguration: LineChartProtocol {
+    public var animateChart: Bool = false
     
-    var currentPlot: String { get set }
+    public var currentPlot: String = ""
     
-    var showPlot: Bool { get set }
+    public var showPlot: Bool = false
     
-    var offset: CGSize { get set }
+    public var offset: CGSize = .zero
     
-    var translation: CGFloat { get set }
+    public var translation: CGFloat = 0
     
-    var target: CGFloat? { get set }
+    public var target: CGFloat?
+    
+    public var data: [ChartDataProvidable] = [ChartDataProvidable]()
+    
+    public var chartData: [ChartDataProvidable] {
+        return data
+    }
 }
