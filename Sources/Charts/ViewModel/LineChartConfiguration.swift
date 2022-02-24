@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public protocol LineChartViewModel: ChartViewModel {
+public protocol LineChartConfiguration: ChartConfiguration {
     var animateChart: Bool { get set }
     
     var currentPlot: String { get set }

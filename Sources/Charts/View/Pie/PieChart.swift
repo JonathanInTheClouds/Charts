@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-public struct PieChart<T>: View where T: ChartViewModel {
+public struct PieChart<T>: View where T: ChartConfiguration {
     
     @ObservedObject public var vm: T
     @State public var selectedPieChartElement: Int? = nil

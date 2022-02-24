@@ -1,5 +1,5 @@
 //
-//  CircleChartViewModel.swift
+//  CircleChartConfiguration.swift
 //  
 //
 //  Created by Mettaworldj on 2/23/22.
@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 15.0, *)
-public protocol CircleChartViewModel: ChartViewModel {
+public protocol CircleChartConfiguration: ChartConfiguration {
     var dataSpacing: Double { get }
     var labelSpacing: Double { get }
 }
