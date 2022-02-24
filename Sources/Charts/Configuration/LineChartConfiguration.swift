@@ -27,7 +27,7 @@ public class LineChartConfiguration: LineChartProtocol {
         return data
     }
     
-    public init() {
-        
+    public init(data: [ChartDataProvidable] = []) {
+        self.data = data
     }
 }
