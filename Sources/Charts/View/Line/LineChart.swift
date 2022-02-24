@@ -11,9 +11,9 @@ import SwiftUI
 public struct LineChart<T>: View where T: LineChartProtocol  {
     
     @ObservedObject public var vm: T
-    public let action: ((ChartDataProvidable) -> Void)?
+    public let action: ((ChartDataProvidable?) -> Void)?
     
-    public init(vm: T, action: ((ChartDataProvidable) -> Void)?) {
+    public init(vm: T, action: ((ChartDataProvidable?) -> Void)?) {
         self.vm = vm
         self.action = action
     }
@@ -89,12 +89,14 @@ public struct LineChart<T>: View where T: LineChartProtocol  {
                         withAnimation {
                             vm.showPlot = false
                         }
+                        if let action = action {
+                            action(nil)
+                        }
                     }))
                     .onAppear {
                         withAnimation(.easeOut(duration: 2)) {
                             vm.animateChart = true
                         }
-                        print(vm.data.count)
                     }
             }
         }
