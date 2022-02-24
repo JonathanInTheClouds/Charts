@@ -41,7 +41,7 @@ public struct LineChart<T>: View where T: LineChartProtocol  {
             ZStack {
                 ClosedLineGraph(dataPoints: points)
                     .fill(
-                        LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.09), Color.blue.opacity(0.3)]),
+                        LinearGradient(gradient: Gradient(colors: [Color.accentColor.opacity(0.09), Color.accentColor.opacity(0.3)]),
                                        startPoint: .bottom,
                                        endPoint: .top)
                     )
@@ -53,12 +53,12 @@ public struct LineChart<T>: View where T: LineChartProtocol  {
                 
                 LineGraph(dataPoints: points)
                     .trim(to: vm.animateChart ? 1 : 0)
-                    .stroke(Color.blue)
+                    .stroke(Color.accentColor)
                     .frame(width: width, height: height)
                     .overlay(
                         VStack(spacing: 0) {
                             Circle()
-                                .fill(Color.blue)
+                                .fill(Color.accentColor)
                                 .frame(width: 12, height: 12)
                         }
                             .frame(width: 80, height: 80)
